@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIP - Seu Aplicativo de Relacionamentos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            @apply bg-gray-50 text-gray-800;
+        }
+
+        .download-button {
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .download-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            height: 100%;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease;
+        }
+        .download-button:hover::before {
+            transform: translateX(100%);
+        }
+
+        .download-progress {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.4);
+            transition: width 0.3s ease;
+        }
+
+        .download-text {
+            position: relative;
+            z-index: 10;
+        }
+
+        .testimonial-container {
+            -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+            mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+        }
+
+        .testimonial-card {
+            min-width: 300px;
+            scroll-snap-align: start;
+        }
+
+        .faq-question:hover {
+            cursor: pointer;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out;
+        }
+
+        .faq-answer.expanded {
+            max-height: 500px; /* A large value to allow for expansion */
+            transition: max-height 0.5s ease-in;
+        }
+
+        /* Responsive adjustments for subtle subconscious effect */
+        @media (max-width: 768px) {
+            .hero-text {
+                font-size: 2.5rem;
+                line-height: 1.1;
+            }
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header -->
+    <header class="bg-white shadow-sm p-4 sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-3xl font-bold text-indigo-600">VIP</h1>
+            <a href="#download" class="text-sm font-semibold text-gray-700 hover:text-indigo-600 transition-colors">Baixar Agora</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative bg-gradient-to-br from-indigo-500 to-purple-600 overflow-hidden py-16 md:py-32">
+        <div class="absolute inset-0 z-0">
+            <img src="https://placehold.co/1200x800/d1d5db/000000?text=[Image+of+a+happy+couple]" alt="Casal feliz usando o aplicativo VIP" class="w-full h-full object-cover opacity-30">
+        </div>
+        <div class="container mx-auto px-6 relative z-10 text-center text-white">
+            <h2 class="text-4xl md:text-6xl font-extrabold leading-tight hero-text mb-4">
+                Conexões Reais, Confiança e Amor
+            </h2>
+            <p class="text-lg md:text-xl font-light mb-8 opacity-90 max-w-2xl mx-auto">
+                No VIP, a sua segurança é a nossa prioridade. Encontre pessoas reais, com a certeza de que cada encontro é um passo seguro para uma nova história.
+            </p>
+            <a href="#download" class="inline-block bg-white text-indigo-600 text-lg md:text-xl font-bold py-4 px-8 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300">
+                Baixe o App VIP Agora
+            </a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="bg-gray-50 py-16 md:py-24">
+        <div class="container mx-auto px-6 text-center">
+            <h3 class="text-3xl md:text-4xl font-bold mb-10 text-gray-800">
+                Por que o VIP é a Escolha Certa?
+            </h3>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Feature 1: Pessoas Verificadas -->
+                <div class="bg-white rounded-2xl shadow-lg p-8 transition-transform transform hover:-translate-y-2">
+                    <div class="flex items-center justify-center w-16 h-16 bg-purple-100 text-purple-600 rounded-full mb-4 mx-auto">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.173a.5.5 0 01.353.147l.5.5a.5.5 0 010 .707l-4.5 4.5a.5.5 0 01-.707 0l-.5-.5a.5.5 0 010-.707l4.5-4.5a.5.5 0 01.354-.147z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                    </div>
+                    <h4 class="font-bold text-xl mb-2">Pessoas Reais e Verificadas</h4>
+                    <p class="text-gray-600">
+                        Nossa equipe garante que todos os perfis são autênticos. Fale com pessoas reais, sem surpresas.
+                    </p>
+                </div>
+
+                <!-- Feature 2: Instalação Guiada -->
+                <div class="bg-white rounded-2xl shadow-lg p-8 transition-transform transform hover:-translate-y-2">
+                    <div class="flex items-center justify-center w-16 h-16 bg-green-100 text-green-600 rounded-full mb-4 mx-auto">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18.5a.5.5 0 01-.5-.5v-6a.5.5 0 011 0v6a.5.5 0 01-.5.5z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18.5a.5.5 0 01-.5-.5v-6a.5.5 0 011 0v6a.5.5 0 01-.5.5z"></path></svg>
+                    </div>
+                    <h4 class="font-bold text-xl mb-2">Instalação Guiada</h4>
+                    <p class="text-gray-600">
+                        Nossos atendentes estão prontos para te ajudar em cada passo da instalação, garantindo uma experiência sem complicações.
+                    </p>
+                </div>
+                
+                <!-- Feature 3: Segurança em Primeiro Lugar -->
+                <div class="bg-white rounded-2xl shadow-lg p-8 transition-transform transform hover:-translate-y-2">
+                    <div class="flex items-center justify-center w-16 h-16 bg-red-100 text-red-600 rounded-full mb-4 mx-auto">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 11.5a1.5 1.5 0 013 0v4a1.5 1.5 0 01-3 0v-4z"></path></svg>
+                    </div>
+                    <h4 class="font-bold text-xl mb-2">Sua Segurança em Foco</h4>
+                    <p class="text-gray-600">
+                        De encontros a videochamadas e troca de fotos, o VIP oferece recursos para que você se sinta sempre protegido.
+                    </p>
+                </div>
+                
+                <!-- Feature 4: Registre seu Relacionamento -->
+                <div class="bg-white rounded-2xl shadow-lg p-8 transition-transform transform hover:-translate-y-2">
+                    <div class="flex items-center justify-center w-16 h-16 bg-blue-100 text-blue-600 rounded-full mb-4 mx-auto">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+                    </div>
+                    <h4 class="font-bold text-xl mb-2">Relacionamentos Sérios</h4>
+                    <p class="text-gray-600">
+                        O VIP permite que você registre e celebre marcos importantes do seu relacionamento, criando uma linha do tempo das suas memórias.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Testimonials Section -->
+    <section class="bg-gray-100 py-16 md:py-24">
+        <div class="container mx-auto px-6 text-center">
+            <h3 class="text-3xl md:text-4xl font-bold mb-10 text-gray-800">
+                O Que Nossos Usuários Dizem
+            </h3>
+            <div id="testimonials-wrapper" class="overflow-hidden relative testimonial-container">
+                <div id="testimonials" class="flex flex-nowrap space-x-6 pb-4">
+                    <!-- Testimonials will be generated by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="bg-white py-16 md:py-24">
+        <div class="container mx-auto px-6">
+            <h3 class="text-3xl md:text-4xl font-bold text-center mb-10 text-gray-800">
+                Dúvidas Comuns
+            </h3>
+            <div id="faqs" class="max-w-3xl mx-auto space-y-4">
+                <!-- FAQ Item 1 -->
+                <div class="bg-gray-100 rounded-lg p-4 transition-shadow hover:shadow-lg">
+                    <div class="flex justify-between items-center faq-question" onclick="toggleAnswer(this)">
+                        <h4 class="font-semibold text-lg">Como o VIP garante a segurança dos usuários?</h4>
+                        <span class="text-2xl transform transition-transform duration-300 rotate-0">+</span>
+                    </div>
+                    <div class="faq-answer mt-2 text-gray-600">
+                        <p>
+                            Nós utilizamos um rigoroso processo de verificação de perfil e moderamos ativamente a plataforma. Além disso, oferecemos ferramentas de segurança para videochamadas e encontros presenciais, para que você possa focar em criar uma conexão verdadeira.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="bg-gray-100 rounded-lg p-4 transition-shadow hover:shadow-lg">
+                    <div class="flex justify-between items-center faq-question" onclick="toggleAnswer(this)">
+                        <h4 class="font-semibold text-lg">Posso falar com um atendente real?</h4>
+                        <span class="text-2xl transform transition-transform duration-300 rotate-0">+</span>
+                    </div>
+                    <div class="faq-answer mt-2 text-gray-600">
+                        <p>
+                            Sim! Nossa equipe de suporte é composta por pessoas reais, prontas para te ajudar com a instalação do app e a tirar qualquer dúvida. O atendimento é rápido e humanizado.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 3 -->
+                <div class="bg-gray-100 rounded-lg p-4 transition-shadow hover:shadow-lg">
+                    <div class="flex justify-between items-center faq-question" onclick="toggleAnswer(this)">
+                        <h4 class="font-semibold text-lg">O que diferencia o VIP de outros aplicativos?</h4>
+                        <span class="text-2xl transform transition-transform duration-300 rotate-0">+</span>
+                    </div>
+                    <div class="faq-answer mt-2 text-gray-600">
+                        <p>
+                            Nossa abordagem é focada na segurança e na qualidade das conexões. Além da verificação rigorosa, a funcionalidade de registrar relacionamentos e a ajuda de atendentes reais nos diferenciam no mercado, criando um ambiente confiável e acolhedor.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Download Section -->
+    <section id="download" class="bg-gradient-to-tr from-rose-500 to-red-600 py-16 md:py-24 text-center">
+        <div class="container mx-auto px-6">
+            <h3 class="text-3xl md:text-4xl font-bold text-white mb-6">
+                Pronto para Começar sua História?
+            </h3>
+            <p class="text-lg md:text-xl text-white opacity-90 mb-8 max-w-2xl mx-auto">
+                Baixe agora o aplicativo VIP e junte-se a uma comunidade que valoriza conexões seguras e significativas.
+            </p>
+            <button id="downloadBtn" class="download-button bg-white text-rose-600 text-lg md:text-xl font-bold py-4 px-12 rounded-full shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:scale-105">
+                <span class="download-text">Baixar App VIP</span>
+                <div id="downloadProgress" class="download-progress"></div>
+            </button>
+            <p id="downloadStatus" class="mt-4 text-white font-semibold hidden">
+                <span id="downloadMessage"></span>
+            </p>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-gray-400 py-10">
+        <div class="container mx-auto px-6 text-center">
+            <p>&copy; 2025 VIP - Todos os direitos reservados. </p>
+            <p class="text-sm mt-2">Feito com segurança e carinho para você.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript for download button logic
+        const downloadBtn = document.getElementById('downloadBtn');
+        const downloadProgress = document.getElementById('downloadProgress');
+        const downloadStatus = document.getElementById('downloadStatus');
+        const downloadMessage = document.getElementById('downloadMessage');
+        let downloadCount = 0;
+        const maxDownloads = 2;
+        const apkUrl = 'https://example.com/app_vip_2025.apk'; // Substitua por sua URL real
+
+        downloadBtn.addEventListener('click', async () => {
+            if (downloadBtn.disabled) return;
+
+            downloadCount++;
+            downloadBtn.disabled = true;
+            downloadBtn.classList.add('opacity-70', 'cursor-not-allowed');
+
+            downloadMessage.textContent = 'Iniciando download...';
+            downloadStatus.classList.remove('hidden');
+
+            const totalSize = 1000; // Simular tamanho total do arquivo em KB
+            let downloaded = 0;
+
+            const updateProgress = setInterval(() => {
+                downloaded += Math.floor(Math.random() * 50) + 10; // Incremento aleatório para simular o progresso
+                if (downloaded >= totalSize) {
+                    downloaded = totalSize;
+                    clearInterval(updateProgress);
+                }
+                const progress = (downloaded / totalSize) * 100;
+                downloadProgress.style.width = `${progress}%`;
+                downloadMessage.textContent = `Baixando... ${Math.round(progress)}%`;
+
+                if (progress >= 100) {
+                    downloadMessage.textContent = 'Download concluído! Verifique suas notificações.';
+                    // Iniciar o download do arquivo via URL
+                    window.location.href = apkUrl;
+                    if (downloadCount >= maxDownloads) {
+                        downloadBtn.textContent = 'Máximo de downloads atingido.';
+                        downloadBtn.classList.add('bg-gray-400', 'text-gray-700', 'cursor-not-allowed');
+                        downloadBtn.classList.remove('bg-rose-600', 'text-white', 'hover:bg-rose-700');
+                    } else {
+                        setTimeout(() => {
+                            downloadBtn.disabled = false;
+                            downloadBtn.classList.remove('opacity-70', 'cursor-not-allowed');
+                            downloadMessage.textContent = '';
+                            downloadStatus.classList.add('hidden');
+                            downloadProgress.style.width = '0%';
+                        }, 2000); // Reativa o botão após 2 segundos
+                    }
+                }
+            }, 200);
+        });
+
+        // JavaScript for FAQ section
+        function toggleAnswer(element) {
+            const parent = element.parentElement;
+            const answer = parent.querySelector('.faq-answer');
+            const icon = element.querySelector('span');
+
+            if (answer.classList.contains('expanded')) {
+                answer.classList.remove('expanded');
+                icon.textContent = '+';
+            } else {
+                answer.classList.add('expanded');
+                icon.textContent = '-';
+            }
+        }
+
+        // JavaScript for generating and scrolling testimonials
+        const testimonialsData = [
+            "Conexões de verdade! Encontrei pessoas incríveis e a segurança do app é impressionante. Muito recomendado!",
+            "A instalação guiada foi super útil. A equipe me ajudou em tudo. É um app sério e confiável.",
+            "Finalmente um aplicativo onde me sinto seguro para conhecer pessoas novas. As videochamadas são ótimas.",
+            "O VIP mudou minha vida! Conheci meu parceiro aqui e amamos registrar nossa história no app. Nota 10!",
+            "Sem perfis falsos, sem enrolação. O VIP entrega o que promete: segurança e encontros reais.",
+            "Achei o app super fácil de usar, e o design é lindo. A função de segurança em encontros é um diferencial.",
+            "Realmente o melhor app de relacionamento que já usei. A verificação de perfis faz toda a diferença.",
+            "Sinto que estou em boas mãos. A equipe de suporte é muito atenciosa. Me sinto protegida.",
+            "Conexões profundas e significativas. Fico muito feliz de ter encontrado o VIP!",
+            "A experiência de uso é fluida e o foco em pessoas reais é o que me fez ficar. Recomendo para todos.",
+            "O atendimento humano faz toda a diferença. Me senti valorizado e amparado desde o primeiro momento.",
+            "Encontrei meu par ideal e agora estamos construindo uma história juntos. O VIP foi o início de tudo.",
+            "Nunca imaginei que um app de relacionamentos seria tão seguro. Adorei!",
+            "A funcionalidade de videochamada é perfeita para conhecer a pessoa antes do encontro.",
+            "Me sinto à vontade para ser eu mesma. O VIP cria um ambiente de respeito e confiança."
+        ];
+
+        const testimonialsContainer = document.getElementById('testimonials');
+        const createTestimonial = (text) => {
+            const card = document.createElement('div');
+            card.className = 'testimonial-card bg-white rounded-xl shadow-md p-6 flex-none';
+            card.innerHTML = `
+                <div class="flex items-center mb-4">
+                    <span class="text-xl text-yellow-500">★★★★★</span>
+                </div>
+                <p class="text-gray-700 italic">"${text}"</p>
+                <div class="mt-4">
+                    <span class="font-semibold text-sm text-gray-500">Usuário Verificado</span>
+                </div>
+            `;
+            return card;
+        };
+
+        const generateInfiniteTestimonials = () => {
+            const count = 30; // Gera 30 depoimentos para simular o "infinito"
+            for (let i = 0; i < count; i++) {
+                const randomText = testimonialsData[Math.floor(Math.random() * testimonialsData.length)];
+                testimonialsContainer.appendChild(createTestimonial(randomText));
+            }
+        };
+
+        window.onload = () => {
+            generateInfiniteTestimonials();
+        };
+
+    </script>
+</body>
+</html>
